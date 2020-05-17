@@ -1,0 +1,16 @@
+{
+	"miniprogramRoot": "dist/",
+	"projectname": "auctioneer",
+	"description": "怀旧服拍卖行",
+	"appid": "wx6e8e022bc72a8a71",
+	"setting": {
+		"urlCheck": true,
+		"es6": false,
+		"postcss": false,
+		"minified": false
+	},
+	"compileType": "miniprogram",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {}
+}
