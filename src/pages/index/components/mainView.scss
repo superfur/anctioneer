@@ -3,3 +3,16 @@
 .main {
     // background-color: cyan;
 }
+.table {
+    margin: 12px 0;
+}
+.at-col {
+    text-align: center;
+    font-size: 30px;
+    line-height: 30px;
+    padding: 12px 0;
+
+    &.title {
+        color: #6190E8;
+    }
+}

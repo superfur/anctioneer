@@ -95,12 +95,12 @@ class MainView extends Component {
         <View style='width:100%; height:300px'>
             <F2Canvas onCanvasInit={this.drawRadar.bind(this)}></F2Canvas>
         </View>
-        <View>
+        <View className="table">
           <View className='at-row'>
-            <View className='at-col at-col-3'><Text>服务器</Text></View>
-            <View className='at-col at-col-3'><Text>一口价</Text></View>
-            <View className='at-col at-col-3'><Text>竞拍价</Text></View>
-            <View className='at-col at-col-3'><Text>数量</Text></View>
+            <View className='at-col at-col-3 title'><Text>服务器</Text></View>
+            <View className='at-col at-col-3 title'><Text>一口价</Text></View>
+            <View className='at-col at-col-3 title'><Text>竞拍价</Text></View>
+            <View className='at-col at-col-3 title'><Text>数量</Text></View>
           </View>
           {prodList.map(item => (
             <View className='at-row' key={item.id}>

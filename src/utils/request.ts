@@ -1,7 +1,7 @@
 import Taro from '@tarojs/taro';
 
 // const BASE_URL = 'http://118.25.50.10:6789';
-const BASE_URL = 'http:/101.132.190.241';
+const BASE_URL = 'http://101.132.190.241';
 
 export const request = <U>(params: { url: string, data: U }) => {
     return Taro.request({

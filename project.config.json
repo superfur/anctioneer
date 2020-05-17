@@ -1,6 +1,6 @@
 {
 	"miniprogramRoot": "dist/",
-	"projectname": "auctioneer",
+	"projectname": "anctioneer",
 	"description": "怀旧服拍卖行",
 	"appid": "wx6e8e022bc72a8a71",
 	"setting": {

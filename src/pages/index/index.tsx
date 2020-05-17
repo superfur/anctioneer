@@ -2,9 +2,10 @@ import { ComponentClass } from 'react'
 import Taro, { Component, Config } from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import { connect } from '@tarojs/redux'
-import { AtButton, AtTag } from 'taro-ui';
+import { AtButton, AtTag, AtInput } from 'taro-ui';
 
 import MainView from './components/mainView';
+import { testApi } from '../../apis';
 
 import './index.scss'
 
@@ -51,11 +52,12 @@ class Index extends Component {
    * 提示和声明 navigationBarTextStyle: 'black' | 'white' 类型冲突, 需要显示声明类型
    */
     config: Config = {
-    navigationBarTitleText: '首页'
+    navigationBarTitleText: '怀旧物价'
   }
 
   state ={
     faction: '1',
+    value: ''
   }
 
   componentWillUnmount () { }
@@ -78,20 +80,26 @@ class Index extends Component {
   }
 
   private async toSearch() {
-    // const data = await testApi();
-    // console.log(data);
+    const data = await testApi();
+    console.log(data);
+  }
+
+  private handleChange(value: any) {
+    this.setState({
+      value
+    })
   }
 
   render () {
-    const { faction } = this.state;
+    const { faction, value } = this.state;
     const { serverName } = this.props;
     return (
       <View className='index'>
-        <View className='at-row'>
-          <View className='at-col at-col-3'>
+        <View className='at-row at-row__justify--between top'>
+          <View className='at-col at-col-5'>
             <AtButton type='secondary' size='small' onClick={this.toServerList}>{serverName ? serverName : '请选择服务器'}</AtButton>
           </View>
-          <View className='at-col at-col__offset-1'>
+          <View className='at-col at-col-5'>
             <AtTag
               name='1'
               type='primary'
@@ -105,10 +113,19 @@ class Index extends Component {
               onClick={this.changeTag.bind(this)}
             >联盟</AtTag>
           </View>
-          <View className='at-col at-col-3'>
-            <AtButton type='primary' size='small' onClick={this.toSearch}>查询</AtButton>
-          </View>
         </View>
+        {/* <View className='at-row'> */}
+          <AtInput
+            name='value'
+            title='商品'
+            type='text'
+            placeholder='请输入要查询的商品'
+            value={value}
+            onChange={this.handleChange.bind(this)}
+          />
+        {/* </View> */}
+
+        <AtButton type='primary' size='small' onClick={this.toSearch}>查询</AtButton>
 
         <MainView />
       </View>
